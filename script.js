@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const playBackward = () => {
+    const playBackward = (onComplete) => {
         clearInterval(scrubInterval);
         video.pause(); // Pause native forward playback
         scrubInterval = setInterval(() => {
@@ -208,13 +208,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (newTime <= 0) {
                 video.currentTime = 0;
                 clearInterval(scrubInterval);
+                if (onComplete && typeof onComplete === 'function') onComplete();
             } else {
                 video.currentTime = newTime;
             }
         }, 30);
     };
 
-    widget.addEventListener('mouseenter', playBackward);
-    widget.addEventListener('mouseleave', playForward);
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window;
+
+    if (isTouchDevice) {
+        // Mobile behavior: Tap to play backward then immediately bounce forward
+        widget.addEventListener('click', () => {
+            playBackward(() => {
+                playForward();
+            });
+        });
+    } else {
+        // Desktop behavior: Hover to play backward, leave to play forward
+        widget.addEventListener('mouseenter', () => playBackward());
+        widget.addEventListener('mouseleave', playForward);
+    }
   }
 });
