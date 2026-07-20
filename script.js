@@ -215,13 +215,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 30);
     };
 
-    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window;
+    const manualPlayForward = () => {
+        clearInterval(scrubInterval);
+        scrubInterval = setInterval(() => {
+            let newTime = video.currentTime + 0.04;
+            if (newTime >= video.duration) {
+                video.currentTime = video.duration;
+                clearInterval(scrubInterval);
+            } else {
+                video.currentTime = newTime;
+            }
+        }, 30);
+    };
+
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     if (isTouchDevice) {
-        // Mobile behavior: Tap to play backward then immediately bounce forward
-        widget.addEventListener('click', () => {
+        // Mobile behavior: Tap to play backward then immediately bounce forward safely
+        widget.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (scrubInterval) clearInterval(scrubInterval);
             playBackward(() => {
-                playForward();
+                manualPlayForward();
             });
         });
     } else {
