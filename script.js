@@ -217,14 +217,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const manualPlayForward = () => {
         clearInterval(scrubInterval);
+        let lastTime = -1;
         scrubInterval = setInterval(() => {
             let newTime = video.currentTime + 0.04;
-            if (newTime >= video.duration) {
-                video.currentTime = video.duration;
+            video.currentTime = newTime;
+            // Android Chrome WebM fallback: stop if duration is reached OR if currentTime stops updating (end of video)
+            if (video.currentTime === lastTime || (video.duration && video.currentTime >= video.duration - 0.05)) {
                 clearInterval(scrubInterval);
-            } else {
-                video.currentTime = newTime;
             }
+            lastTime = video.currentTime;
         }, 30);
     };
 
