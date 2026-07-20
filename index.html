@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MathSoc - Mathematics Society, IIT Delhi</title>
+  <meta name="description" content="Mathematics Society, IIT Delhi - Fostering Excellence in Mathematics">
+  <!-- Google Fonts: Inter for a modern, clean typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo-container">
+        <img src="mathsoc.png" alt="MathSoc Logo" class="logo">
+      </div>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+          <!-- Sun Icon -->
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <!-- Moon Icon -->
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        
+        <div class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-bg-shapes">
+        <!-- Canvas for Graph Theory Network Background -->
+        <canvas id="networkCanvas"></canvas>
+        
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <!-- Math Floating Elements -->
+        <div class="math-symbol symbol-1">∫</div>
+        <div class="math-symbol symbol-2">∑</div>
+        <div class="math-symbol symbol-3">π</div>
+        <div class="math-symbol symbol-4">∞</div>
+        <div class="math-symbol symbol-5">∂</div>
+      </div>
+      <div class="container hero-container">
+        <div class="hero-content fade-in-up">
+          <h1 class="hero-title">Mathematics Society <br/><span class="highlight">IIT Delhi</span></h1>
+          <p class="hero-subtitle">Exploring the beauty, power, and utility of mathematics. Join us in fostering mathematical excellence and curiosity.</p>
+          <div class="hero-cta">
+            <a href="#about" class="btn btn-primary">Discover More</a>
+            <a href="#events" class="btn btn-secondary">Upcoming Events</a>
+          </div>
+        </div>
+        
+        <!-- Interactive Logo Widget -->
+        <div class="hero-widget fade-in-up" style="animation-delay: 0.2s;">
+          <div class="widget-container" id="logoWidget" title="Hover to reverse animation!">
+            <video id="logoVideo" autoplay muted playsinline preload="auto">
+                <source src="scrubbable_widget.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+            <h3 class="widget-text">MathSoc IITD</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge">About Us</span>
+          <h2 class="section-title">Who We Are</h2>
+          <p class="section-desc">The official student body representing the mathematics community at IIT Delhi.</p>
+        </div>
+        
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>The Mathematics Society (MathSoc) at IIT Delhi is dedicated to nurturing a vibrant mathematical culture. We serve as a dynamic platform connecting students with transformative opportunities in research, problem-solving, and academia beyond the traditional classroom setting.</p>
+          </div>
+          
+          <div class="features-container">
+            <div class="feature-card reveal" style="transition-delay: 0.1s;">
+              <div class="feature-icon">
+                <!-- SVG Icon for Problem Solving -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              </div>
+              <h3>Problem Solving</h3>
+              <p>Engage in challenging puzzles, competitive programming, and mathematical olympiad style problems.</p>
+            </div>
+            
+            <div class="feature-card reveal" style="transition-delay: 0.2s;">
+              <div class="feature-icon">
+                <!-- SVG Icon for Research -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+              </div>
+              <h3>Research & Talks</h3>
+              <p>Attend expert talks, paper reading sessions, and seminars exploring pure and applied mathematics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Stats Section -->
+    <section id="social" class="panels-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge">Community</span>
+          <h2 class="section-title">Join Our Network</h2>
+          <p class="section-desc">Stay updated with our latest events, research, and mathematical insights.</p>
+        </div>
+        
+        <div class="social-panels-grid">
+          <!-- Instagram Panel -->
+          <a href="https://www.instagram.com/mathsociitd/?hl=en" target="_blank" class="social-panel-card instagram reveal" style="transition-delay: 0.1s;">
+            <div class="social-bg"></div>
+            <div class="social-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </div>
+            <div class="social-stats">
+              <h3 class="counter">1.5K+</h3>
+              <p>Followers</p>
+            </div>
+            <div class="social-action">
+              <span>Follow @mathsociitd</span>
+              <span class="arrow">→</span>
+            </div>
+          </a>
+
+          <!-- LinkedIn Panel -->
+          <a href="https://www.linkedin.com/company/mathsoc-iit-delhi?originalSubdomain=in" target="_blank" class="social-panel-card linkedin reveal" style="transition-delay: 0.2s;">
+            <div class="social-bg"></div>
+            <div class="social-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </div>
+            <div class="social-stats">
+              <h3 class="counter">2.8K+</h3>
+              <p>Connections</p>
+            </div>
+            <div class="social-action">
+              <span>Connect on LinkedIn</span>
+              <span class="arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <img src="mathsoc.png" alt="MathSoc Logo" class="footer-logo">
+        <p>Mathematics Society, IIT Delhi</p>
+      </div>
+      
+      <div class="footer-social">
+        <a href="https://www.instagram.com/mathsociitd/?hl=en" target="_blank" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/mathsoc-iit-delhi?originalSubdomain=in" target="_blank" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+      </div>
+
+      <div class="footer-right">
+        <p>&copy; 2026 MathSoc IIT Delhi. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

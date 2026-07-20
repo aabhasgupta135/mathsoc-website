@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Logo Widget</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .widget-container {
+            width: 350px; /* Adjust size of your widget here */
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            padding: 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .widget-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            pointer-events: none; /* Allows the container to handle all hover events perfectly */
+        }
+
+        .instructions {
+            margin-top: 30px;
+            color: #6c757d;
+            text-align: center;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="widget-container" id="logoWidget">
+        <video id="logoVideo" muted playsinline preload="auto">
+            <!-- Now using a special intra-frame encoded webm for perfect scrubbing -->
+            <source src="scrubbable_widget.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <p class="instructions">
+        Hover over the widget to play the animation in reverse. Move your mouse off to play it forward to the last frame.
+    </p>
+
+    <script>
+        const widget = document.getElementById('logoWidget');
+        const video = document.getElementById('logoVideo');
+        
+        let scrubInterval;
+
+        // Force manual control over playback
+        video.pause();
+
+        let initialized = false;
+
+        video.addEventListener('loadedmetadata', () => {
+            if (!initialized) {
+                video.currentTime = video.duration;
+                initialized = true;
+            }
+        });
+
+        video.addEventListener('canplay', () => {
+            if (!initialized && video.currentTime === 0 && video.duration > 0) {
+                video.currentTime = video.duration;
+                initialized = true;
+            }
+        });
+
+        widget.addEventListener('mouseenter', () => {
+            clearInterval(scrubInterval);
+            scrubInterval = setInterval(() => {
+                // Step backwards 0.04 seconds per frame (~25fps)
+                let newTime = video.currentTime - 0.04;
+                if (newTime <= 0) {
+                    video.currentTime = 0;
+                    clearInterval(scrubInterval);
+                } else {
+                    video.currentTime = newTime;
+                }
+            }, 30);
+        });
+
+        widget.addEventListener('mouseleave', () => {
+            clearInterval(scrubInterval);
+            scrubInterval = setInterval(() => {
+                // Step forwards 0.04 seconds per frame (~25fps)
+                let newTime = video.currentTime + 0.04;
+                if (newTime >= video.duration) {
+                    video.currentTime = video.duration;
+                    clearInterval(scrubInterval);
+                } else {
+                    video.currentTime = newTime;
+                }
+            }, 30);
+        });
+    </script>
+</body>
+</html>
