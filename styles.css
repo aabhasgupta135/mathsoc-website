@@ -1037,8 +1037,7 @@ h1, h2, h3, h4 {
     grid-template-columns: repeat(3, 1fr);
   }
   .oc-card .member-img-wrapper {
-    width: 150px;
-    height: 150px;
+    max-width: 160px;
   }
 }
 
@@ -1050,8 +1049,7 @@ h1, h2, h3, h4 {
     grid-template-columns: repeat(2, 1fr);
   }
   .exes-card .member-img-wrapper {
-    width: 90px;
-    height: 90px;
+    max-width: 100px;
   }
   .exes-card .member-name {
     font-size: 0.95rem;
