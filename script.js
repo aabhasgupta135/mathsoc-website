@@ -67,9 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     navItems.forEach(item => {
-      item.classList.remove('active');
-      if (item.getAttribute('href').includes(current)) {
-        item.classList.add('active');
+      const href = item.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        item.classList.remove('active');
+        if (current && href === `#${current}`) {
+          item.classList.add('active');
+        }
       }
     });
   });
