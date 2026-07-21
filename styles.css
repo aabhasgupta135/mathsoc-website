@@ -837,16 +837,19 @@ h1, h2, h3, h4 {
   padding: 2rem 0;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .team-tier-title {
   text-align: center;
   font-size: 2.2rem;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem auto;
   color: var(--text-color);
   font-weight: 700;
   position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
+  width: max-content;
 }
 
 .team-tier-title::after {
