@@ -943,10 +943,12 @@ h1, h2, h3, h4 {
 }
 
 .member-img-wrapper {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  border-radius: 16px;
+  margin: 0 auto 1.5rem auto;
   position: relative;
   z-index: 1;
   border: 4px solid transparent;
@@ -964,7 +966,7 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 12px;
 }
 
 .member-name {
@@ -988,8 +990,7 @@ h1, h2, h3, h4 {
 }
 
 .oc-card .member-img-wrapper {
-  width: 180px;
-  height: 180px;
+  max-width: 200px;
 }
 
 .oc-card .member-name {
@@ -1002,8 +1003,7 @@ h1, h2, h3, h4 {
 }
 
 .exes-card .member-img-wrapper {
-  width: 110px;
-  height: 110px;
+  max-width: 120px;
   margin-bottom: 1rem;
 }
 
