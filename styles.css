@@ -796,7 +796,8 @@ h1, h2, h3, h4 {
   }
   
   .math-symbol {
-    display: none;
+    opacity: 0.03;
+    transform: scale(0.5);
   }
   
   .about, .panels-section {
