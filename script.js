@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentTheme = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
-  if (currentTheme === 'dark' || (!currentTheme && prefersDark)) {
+  if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
 
