@@ -872,9 +872,16 @@ h1, h2, h3, h4 {
 
 /* Specific Layouts */
 .ocs-grid {
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 1000px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 800px;
   margin: 0 auto;
+}
+
+.ocs-grid > .team-card:first-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 .convenors-grid {
