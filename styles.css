@@ -830,7 +830,9 @@ h1, h2, h3, h4 {
 }
 
 .team-header {
-  padding: 4rem 0 2rem;
+  padding: 6rem 0 4rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .team-section {
