@@ -632,6 +632,96 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
+   Resource Cards
+   ========================================================================== */
+.resource-card {
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 3rem 2rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  border: 1px solid rgba(0,0,0,0.02);
+  z-index: 1;
+}
+
+.resource-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.resource-card .social-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--res-color, var(--primary));
+  opacity: 0.03;
+  z-index: -1;
+  transition: opacity var(--transition-normal);
+}
+
+.resource-card:hover .social-bg {
+  opacity: 0.08;
+}
+
+.resource-card .social-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  background: var(--res-color, var(--primary));
+  color: white;
+  transition: transform var(--transition-normal);
+}
+
+.resource-card:hover .social-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.resource-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 1rem;
+}
+
+.resource-card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.resource-card .social-action {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--res-color, var(--primary));
+}
+
+.resource-card .social-action .arrow {
+  transition: transform var(--transition-fast);
+}
+
+.resource-card:hover .social-action .arrow {
+  transform: translateX(5px);
+}
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 .footer {
